@@ -230,7 +230,7 @@ let InputUserData = (props) => {
                                     </Accordion.Body>
                                     <Accordion.Body>
                                         <div className='reservation-info-item'>
-                                            <h5>전화번호</h5>
+                                            <h5>전화번호 (문자알림서비스 제공용)</h5>
                                             <Form.Control size="lg" type="text" placeholder="예약자 전화번호" onChange={(e) => { props.setUserPhone(e.target.value) }} />
                                         </div>
                                     </Accordion.Body>
