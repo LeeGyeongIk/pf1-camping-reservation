@@ -264,11 +264,10 @@ let Payments = (userName, userPhone, handleClose) => {
                 title: "예약완료",
                 html: `입력하신 전화번호로<br/>확인 메시지를 보내드리겠습니다.`
             }).then(() => {
+                handleClose();
                 axios.post('/sendSMS', {
                     phone: userPhone,
                     content: `[가야랜드달빛야영장] ${userName}님의 예약이 완료되었습니다.`
-                }).then(() => {
-                    handleClose();
                 })
             })
         } else {
