@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+
+div {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    width: 100%;
+    height: 12%;
+    transition: all 0.5s ease;
+}
+
+.not-scrolled {
+    background-color: transparent;
+}
+
+.scrolled {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.navbar:hover {
+    height: 20%;
+    transition: all 0.5s ease;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.logo {
+    padding: 1.5%;
+    position: fixed;
+    top: 0;
+    left: 10%;
+    cursor: pointer;
+}
+
+.logo p {
+    margin-bottom: 0px;
+    color: white;
+    text-align: left;
+}
+
+.logo p:nth-child(1) {
+    font-size: 1rem;
+}
+
+.logo p:nth-child(2) {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.menu {
+    display: flex;
+    color: white;
+    position: fixed;
+    top: 3%;
+    right: 10%;
+}
+
+.menu ul {
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.menu ul>li {
+    display: none;
+    padding: 1%;
+    margin-bottom: 10%;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.menu ul:hover li {
+    display: block;
+}
+
+.menu ul>li:hover {
+    color: gold;
+}
+
+@media screen and (max-width: 800px) {
+    .logo {
+        left: 1%;
+    }
+
+    .menu {
+        right: 1%;
+    }
+
+    .menu ul {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .menu {
+        top: 1%;
+    }
+    
+    .logo p:nth-child(1) {
+        font-size: 0.7rem;
+    }
+    
+    .logo p:nth-child(2) {
+        font-size: 1.2rem;
+    }
+}

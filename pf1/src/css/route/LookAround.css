@@ -1,0 +1,21 @@
+.section-margin-top-5 {
+    margin-top: 5% !important;
+}
+
+.section-margin-bottom-5 {
+    margin-bottom: 5% !important;
+}
+
+.content-margin-bottom-1 {
+    margin-bottom: 1% !important;
+}
+
+.look-around-img-wrap {
+    background-color: aqua;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.look-around-img {
+    width: 100%;
+}

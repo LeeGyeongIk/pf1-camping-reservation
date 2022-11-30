@@ -1,0 +1,45 @@
+.section-margin-top-5 {
+    margin-top: 5% !important;
+}
+
+.section-margin-bottom-5 {
+    margin-bottom: 5% !important;
+}
+
+.content-margin-bottom-1 {
+    margin-bottom: 1% !important;
+}
+
+.kakao-map {
+    width: 60%;
+    height: 30rem;
+    margin: 0 auto;
+}
+
+.location-introduction {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 2%;
+    text-align: left;
+}
+
+.location-introduction table {
+    width: 100%;
+}
+
+.location-introduction th {
+    font-size: 1.2rem;
+    width: 20%;
+    text-align: center;
+    padding: 1%;
+    background-color: silver;
+    border: 2px solid #eee;
+}
+
+.location-introduction td {
+    font-size: 1.2rem;
+    width: 80%;
+    text-align: left;
+    padding: 2%;
+    border-bottom: 2px solid silver;
+}

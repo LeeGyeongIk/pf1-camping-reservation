@@ -1,0 +1,69 @@
+.section-margin-top-5 {
+    margin-top: 5% !important;
+}
+
+.section-margin-bottom-5 {
+    margin-bottom: 5% !important;
+}
+
+.content-margin-bottom-3 {
+    margin-bottom: 3% !important;
+}
+
+.bill-introduction {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.bill-introduction-title {
+    text-align: left;
+}
+
+.bill-introduction-title h4 {
+    font-weight: 800;
+}
+
+.bill-introduction table {
+    width: 100%;
+}
+
+.bill-introduction tr {
+    border-bottom: 2px solid silver;
+    font-size: 1.2rem;  
+}
+
+.bill-introduction tr:nth-child(1) th {
+    background-color: silver;
+    padding: 2%;
+}
+
+.bill-introduction td {
+    font-size: 1.1rem;
+    padding: 3%;
+}
+
+.bill-introduction-extra {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-size: 1.1rem;
+    line-height: 2rem;
+}
+
+.reservation-button {
+    width: 20%;
+    margin: 0 auto;
+}
+
+.reservation-button button {
+    width: 100%;
+    font-size: 1.3rem;
+    padding: 10%;
+    color: white;
+    background-color: #223589;
+    border: none;
+}
+
+.reservation-button button:hover {
+    background-color: orangered;
+}

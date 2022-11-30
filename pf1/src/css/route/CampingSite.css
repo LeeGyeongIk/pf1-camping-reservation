@@ -1,0 +1,86 @@
+.section-margin-top-5 {
+    margin-top: 5% !important;
+}
+
+.section-margin-bottom-5 {
+    margin-bottom: 5% !important;
+}
+
+.content-margin-bottom-1 {
+    margin-bottom: 1% !important;
+}
+
+/* .swiper-wraper {
+    width: fit-content !important;
+}
+
+.swiper {
+    width: 50% !important;
+} */
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.slide {
+    width: 50%;
+    height: 500px;
+    margin: 0 auto;
+}
+
+.slide-img {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.camping-site-introduction {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 2%;
+    text-align: left;
+}
+
+.camping-site-introduction table {
+    width: 100%;
+}
+
+.camping-site-introduction th {
+    font-size: 1.2rem;
+    width: 20%;
+    text-align: center;
+    padding: 1%;
+    background-color: silver;
+    border: 2px solid #eee;
+}
+
+.camping-site-introduction td {
+    font-size: 1.2rem;
+    width: 80%;
+    text-align: left;
+    padding: 2%;
+    border-bottom: 2px solid silver;
+}

@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+
+.content-header {
+    margin-top: 5%
+}
+
+.content-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1%;
+}
+
+.content-header p {
+    font-size: 1.2rem;
+}
+
+.landing-video {
+    width: 100vw;
+}
+
+.landing-comment {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+.landing-comment-animation {
+    animation: FadeIn 1s ease, BottomIn 1s ease;
+}
+
+.landing-comment h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 8%;
+    white-space: nowrap;
+}
+
+.landing-comment p {
+    font-size: 1.3rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.scroll-down {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20%;
+}
+
+.scroll {
+    width: 2.5rem;
+    height: 4rem;
+    border: 5px solid white;
+    border-radius: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scroll-dot {
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    background: white;
+    display: block;
+    animation: Cursor 1s linear infinite;
+}
+
+.arrow-down {
+    width: 0.8rem;
+    height: 0.8rem;
+    border: 3px solid transparent;
+    border-right-color: white;
+    border-bottom-color: white;
+    transform: rotate(45deg);
+    margin-top: 0.3rem;
+    animation: FadeIn 1s linear infinite;
+}
+
+.camping-zone-content {
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+
+.camping-zone-wraper {
+    position: relative;
+    overflow: hidden;
+}
+
+.camping-zone-img-wraper {
+    padding: 0.5%;
+    transition: all 0.3s linear;
+    filter: brightness(0.5);
+}
+
+.camping-zone-img-wraper:hover {
+    transition: all 0.3s linear;
+    transform: scale(1.05);
+    filter: brightness(1);
+    cursor: pointer;
+}
+
+.camping-zone-img {
+    width: 100%;
+    height: 100%;
+}
+
+.camping-zone-text {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.camping-zone-text h3 {
+    font-weight: 550;
+}
+
+.shortcut-content {
+    margin-top: 5%;
+}
+
+.shortcut-card {
+    position: relative;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+    padding: 2rem;
+    text-align: left;
+    transition: all 0.1s linear;
+    cursor: pointer;
+}
+
+.shortcut-card:hover {
+    transition: all 0.1s linear;
+    transform: scale(1.05);
+}
+
+.shortcut-card:hover .shortcut-comment h5 {
+    color: #ff7f00;
+}
+
+.shortcut-card:hover .shortcut-comment span:nth-child(3) {
+    transition: all 0.1s linear;
+    transform: translateX(0.8rem);
+    color: black;
+    font-weight: 600;
+}
+
+.shortcut-comment {
+    display: flex;
+    flex-direction: column;
+}
+
+.shortcut-comment h5 {
+    font-weight: 550;
+    margin-bottom: 1rem;
+}
+
+.shortcut-comment span {
+    font-size: 0.9rem;
+    color: grey;
+}
+
+.shortcut-comment span:nth-child(2) {
+    margin-bottom: 1rem;
+}
+
+.shortcut-comment span:nth-child(3) {
+    transition: all 0.1s linear;
+}
+
+.shortcut-card-icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 3rem;
+    font-size: 2rem;
+}
+
+.shortcut-disable {
+    display: none;
+}
+
+.fa-chevron-right {
+    margin-left: 0.3rem;
+}
+
+.notice-responsive {
+    display: none;
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+.notice {
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+.notice-title {
+    text-align: left;
+    margin-bottom: 2%;
+}
+
+.notice-card {
+    background-color: white;
+    padding: 2rem;
+    text-align: left;
+    width: 100%;
+    height: 100%;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.notice-card:hover {
+    background-color: #223589;
+    color: white;
+    transition: all 0.2s ease;
+}
+
+.notice-card:hover hr {
+    background-color: white;
+}
+
+.notice-card hr {
+    height: 3px;
+    background-color: black;
+    border: none;
+}
+
+.notice-card-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* 라인수 제한 */
+    -webkit-box-orient: vertical;
+    word-wrap:break-word; 
+    line-height: 1.2em;
+    height: 1.2em; /* 한 줄당 1.2em이므로 * 1 */
+}
+
+.notice-card-content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* 라인수 제한 */
+    -webkit-box-orient: vertical;
+    word-wrap:break-word; 
+    line-height: 1.2em;
+    height: 3.6em; /* 한 줄당 1.2em이므로 * 3 */
+    font-size: 1rem
+}
+
+.notice-card-footer {
+    position: relative;
+    width: 100%;
+    padding: 3rem;
+}
+
+.notice-card-footer span:nth-child(1) {
+    position: absolute;
+    left: 0;
+}
+
+.notice-card-footer span:nth-child(2) {
+    position: absolute;
+    right: 0;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+@keyframes FadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes BottomIn {
+    from {
+        transform: translateY(20%);
+    }
+
+    to {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes Cursor {
+    from {
+        transform: translateY(-1rem);
+    }
+
+    to {
+        transform: translateY(0.5rem);
+    }
+}
+
+@media screen and (max-width: 1000px) {    
+    .notice-responsive {
+        display: block;
+    }
+
+    .notice {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 800px) {    
+    .landing-comment h1 {
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 8%;
+    }
+    
+    .landing-comment p {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .scroll-down {
+        display: none;
+    }
+}

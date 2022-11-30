@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+
+.section-margin-top-5 {
+    margin-top: 5% !important;
+}
+
+.section-margin-bottom-5 {
+    margin-bottom: 5% !important;
+}
+
+.content-margin-bottom-1 {
+    margin-bottom: 1% !important;
+}
+
+.introduction {
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+.introduction-row {
+    padding: 5%;
+}
+
+.introduction-col {
+    padding: 0 !important;
+    background-color: white;
+    overflow: hidden;
+}
+
+.quote-col {
+    overflow: hidden;
+}
+
+.introduction-wrap {
+    display: flex;
+    width: 100%;
+}
+
+.introduction-img {
+    background-image: url('../../img/route/MainInfo/MainInfo_img_2.jpeg');
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: SlideInLeft 1s ease;
+}
+
+.introduction-content {
+    position: relative;
+    height: 100%;
+    animation: SlideInRight 1s ease;
+}
+
+.introduction-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.introduction-text h5 {
+    font-weight: 800;
+}
+
+.introduction-text h2 {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: goldenrod;
+    padding: 1rem;
+}
+
+.quote {
+    animation: SlideInBottom 1s ease;
+}
+
+.quote-left, .quote-right {
+    color: grey;
+    font-size: 1.5rem;
+}
+
+.quote-content-title h3 {
+    font-family: 'Nanum Myeongjo', serif;
+    color: goldenrod;
+    font-size: 2.5rem;
+    font-weight: 600;
+    padding: 1rem;
+}
+
+.quote-content-body {
+    margin-bottom: 1rem;
+}
+
+@keyframes SlideInLeft {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transfrom: translateX(0);
+    }
+}
+
+@keyframes SlideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transfrom: translateX(0);
+    }
+}
+
+@keyframes SlideInBottom {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transfrom: translateY(0);
+    }
+}

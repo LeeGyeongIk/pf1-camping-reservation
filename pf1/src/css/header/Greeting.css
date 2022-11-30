@@ -1,0 +1,32 @@
+.section-margin-top-5 {
+    margin-top: 5% !important;
+}
+
+.section-margin-bottom-5 {
+    margin-bottom: 5% !important;
+}
+
+.content-margin-bottom-1 {
+    margin-bottom: 1% !important;
+}
+
+.greeting-title h3 {
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.greeting-content span {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.horizen {
+    width: 3rem;
+    margin: 0 auto;
+}
+
+.horizen hr {
+    background: orangered;
+    height: 5px;
+    border: 0;
+}
