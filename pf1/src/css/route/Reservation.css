@@ -83,6 +83,10 @@
     font-weight: 600;
 }
 
+.booker-info {
+    text-align: left;
+}
+
 .select-options-done-button {
     width: 20% !important;
     margin: 0 auto;

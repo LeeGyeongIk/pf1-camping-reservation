@@ -19,16 +19,6 @@ app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, './pf1/buld/index.html'));
 });
 
-app.get('/getNotice', function (req, res) {
-    const fs = require('fs');
-    fs.readFile('./notice.json', (err, data) => {  // 파일 읽기
-        if (err) throw err
-
-        const rowData = JSON.parse(data);
-        res.send(rowData);
-    });
-});
-
 app.post('/sendSMS', (req, res) => {
     sms(req.body.phone, req.body.content);
 })

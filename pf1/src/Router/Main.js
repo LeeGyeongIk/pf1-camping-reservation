@@ -9,8 +9,6 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -23,24 +21,17 @@ import "swiper/css/navigation";
 // import required modules
 import { Pagination, Autoplay } from "swiper";
 
+import { useSelector } from 'react-redux';
+
 let Main = () => {
     const navigate = useNavigate();
-    const [notice, setNotice] = useState();
-
-    useEffect(() => {
-        axios.get('/getNotice').then((result) => {
-            setNotice(result.data.notice)
-        }).catch((err) => {
-            alert(err);
-        });
-    }, [])
 
     return (
         <>
             <LandingDisplay />
             <CampingZone navigate={navigate} />
             <ShortCut navigate={navigate} />
-            <Notice notice={notice} />
+            <Notice />
         </>
     );
 }
@@ -224,7 +215,11 @@ let ShortCut = (props) => {
     );
 }
 
-let Notice = (props) => {
+let Notice = () => {
+    let notice = useSelector((state) => {
+        return state.notice;
+    })
+
     return (
         <>
             <div className="notice-responsive">
@@ -252,27 +247,25 @@ let Notice = (props) => {
                                 className="mySwiper"
                             >
                                 {
-                                    props.notice != undefined ?
-                                        props.notice.map((data, i) => {
-                                            return (
-                                                <SwiperSlide key={i}>
-                                                    <div className="notice-card">
-                                                        <div className="notice-card-title">
-                                                            <h5>{data.title}</h5>
-                                                        </div>
-                                                        <hr />
-                                                        <div className="notice-card-content">
-                                                            <span>{data.content}</span>
-                                                        </div>
-                                                        <div className="notice-card-footer">
-                                                            <span>READ MORE</span>
-                                                            <span>{data.date}</span>
-                                                        </div>
+                                    notice.map((data, i) => {
+                                        return (
+                                            <SwiperSlide key={i}>
+                                                <div className="notice-card">
+                                                    <div className="notice-card-title">
+                                                        <h5>{data.title}</h5>
                                                     </div>
-                                                </SwiperSlide>
-                                            );
-                                        })
-                                        : null
+                                                    <hr />
+                                                    <div className="notice-card-content">
+                                                        <span>{data.content}</span>
+                                                    </div>
+                                                    <div className="notice-card-footer">
+                                                        <span>READ MORE</span>
+                                                        <span>{data.date}</span>
+                                                    </div>
+                                                </div>
+                                            </SwiperSlide>
+                                        );
+                                    })
                                 }
                             </Swiper>
                         </Col>
@@ -304,27 +297,25 @@ let Notice = (props) => {
                                 className="mySwiper"
                             >
                                 {
-                                    props.notice != undefined ?
-                                        props.notice.map((data, i) => {
-                                            return (
-                                                <SwiperSlide key={i}>
-                                                    <div className="notice-card">
-                                                        <div className="notice-card-title">
-                                                            <h5>{data.title}</h5>
-                                                        </div>
-                                                        <hr />
-                                                        <div className="notice-card-content">
-                                                            <span>{data.content}</span>
-                                                        </div>
-                                                        <div className="notice-card-footer">
-                                                            <span>READ MORE</span>
-                                                            <span>{data.date}</span>
-                                                        </div>
+                                    notice.map((data, i) => {
+                                        return (
+                                            <SwiperSlide key={i}>
+                                                <div className="notice-card">
+                                                    <div className="notice-card-title">
+                                                        <h5>{data.title}</h5>
                                                     </div>
-                                                </SwiperSlide>
-                                            );
-                                        })
-                                        : null
+                                                    <hr />
+                                                    <div className="notice-card-content">
+                                                        <span>{data.content}</span>
+                                                    </div>
+                                                    <div className="notice-card-footer">
+                                                        <span>READ MORE</span>
+                                                        <span>{data.date}</span>
+                                                    </div>
+                                                </div>
+                                            </SwiperSlide>
+                                        );
+                                    })
                                 }
                             </Swiper>
                         </Col>

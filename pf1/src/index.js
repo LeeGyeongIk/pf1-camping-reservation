@@ -7,13 +7,22 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ScrollTop from './module/ScrollTop';
+import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
+import { Provider } from 'react-redux';
+import notice from './redux/notice';
+
+const queryClient = new QueryClient()
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <ScrollTop />
-    <App />
-  </BrowserRouter>
+  <QueryClientProvider client={queryClient}>
+    <Provider store={notice}>
+      <BrowserRouter>
+        <ScrollTop />
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </QueryClientProvider>
 );
 
 // If you want your app to work offline and load faster, you can change

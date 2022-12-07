@@ -20,52 +20,24 @@ import "react-datepicker/dist/react-datepicker.css";
 import { ko } from "date-fns/esm/locale";
 
 let Reservation = () => {
+    return (
+        <div>
+            <MainBackGround />
+            <Greeting title="예약하기" content="달빛야영장을 온라인 서비스로 간편하게 이용하세요." />
+            <SelectOptions />
+        </div>
+    );
+}
+
+let SelectOptions = () => {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const [selectCampingSite, setSelectCampingSite] = useState(0);
     const campingSiteName = ["수로존", "김해존", "신어존"];
     const campingSiteImg = GetImg;
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
     const [userName, setUserName] = useState('');
     const [userPhone, setUserPhone] = useState('');
 
-    return (
-        <div>
-            <MainBackGround />
-            <Greeting title="예약하기" content="달빛야영장을 온라인 서비스로 간편하게 이용하세요." />
-            <SelectOptions
-                startDate={startDate}
-                setStartDate={setStartDate}
-                endDate={endDate}
-                setEndDate={setEndDate}
-                campingSiteName={campingSiteName}
-                campingSiteImg={campingSiteImg}
-                selectCampingSite={selectCampingSite}
-                setSelectCampingSite={setSelectCampingSite}
-                handleShow={handleShow}
-                setShow={setShow}
-            />
-            <InputUserData
-                handleClose={handleClose}
-                show={show}
-                setShow={setShow}
-                startDate={startDate}
-                endDate={endDate}
-                campingSiteName={campingSiteName}
-                selectCampingSite={selectCampingSite}
-                userName={userName}
-                setUserName={setUserName}
-                userPhone={userPhone}
-                setUserPhone={setUserPhone}
-            />
-        </div>
-    );
-}
-
-let SelectOptions = (props) => {
-    let test = new Array();
     return (
         <div className="select-options section-margin-top-2">
             <Container>
@@ -73,8 +45,8 @@ let SelectOptions = (props) => {
                     <Col sm>
                         <div className="date-picker-start section-margin-bottom-5">
                             <DatePicker
-                                selected={props.startDate}
-                                onChange={(date) => { props.setStartDate(date); props.setEndDate(date) }}
+                                selected={startDate}
+                                onChange={(date) => { setStartDate(date); setEndDate(date) }}
                                 locale={ko}                   // 한글로 변경
                                 dateFormat="yyyy.MM.dd (eee)" // 시간 포맷 변경
                                 showPopperArrow={false}       // 화살표 변경
@@ -88,12 +60,12 @@ let SelectOptions = (props) => {
                     <Col sm>
                         <div className="date-picker-end">
                             <DatePicker
-                                selected={props.endDate}
-                                onChange={(date) => props.setEndDate(date)}
+                                selected={endDate}
+                                onChange={(date) => setEndDate(date)}
                                 locale={ko}                   // 한글로 변경
                                 dateFormat="yyyy.MM.dd (eee)" // 시간 포맷 변경
                                 showPopperArrow={false}       // 화살표 변경
-                                minDate={props.startDate}          // 오늘 날짜 전은 선택 못하게
+                                minDate={startDate}          // 오늘 날짜 전은 선택 못하게
                                 customInput={		      // 날짜 뜨는 인풋 커스텀
                                     <Form.Control as="textarea" rows={1} />
                                 }
@@ -106,18 +78,18 @@ let SelectOptions = (props) => {
                         <div className="select-camping-site content-margin-bottom-3">
                             <div className="select-camping-site-pill-wrap">
                                 <div
-                                    onClick={() => { props.setSelectCampingSite(0) }}
-                                    className={`select-camping-site-pill ${props.selectCampingSite == 0 ? "camping-site-selected" : null}`}>
+                                    onClick={() => { setSelectCampingSite(0) }}
+                                    className={`select-camping-site-pill ${selectCampingSite == 0 ? "camping-site-selected" : null}`}>
                                     <span>수로존</span>
                                 </div>
                                 <div
-                                    onClick={() => { props.setSelectCampingSite(1) }}
-                                    className={`select-camping-site-pill ${props.selectCampingSite == 1 ? "camping-site-selected" : null}`}>
+                                    onClick={() => { setSelectCampingSite(1) }}
+                                    className={`select-camping-site-pill ${selectCampingSite == 1 ? "camping-site-selected" : null}`}>
                                     <span>김해존</span>
                                 </div>
                                 <div
-                                    onClick={() => { props.setSelectCampingSite(2) }}
-                                    className={`select-camping-site-pill ${props.selectCampingSite == 2 ? "camping-site-selected" : null}`}>
+                                    onClick={() => { setSelectCampingSite(2) }}
+                                    className={`select-camping-site-pill ${selectCampingSite == 2 ? "camping-site-selected" : null}`}>
                                     <span>신어존</span>
                                 </div>
                             </div>
@@ -127,136 +99,110 @@ let SelectOptions = (props) => {
                 <Row>
                     <Col sm>
                         <div className="select-camping-site-img content-margin-bottom-3">
-                            <GetSwiper campingSiteImg={props.campingSiteImg[props.selectCampingSite]} />
+                            <GetSwiper campingSiteImg={campingSiteImg[selectCampingSite]} />
                         </div>
                     </Col>
                 </Row>
                 <Row>
-                    <div className="select-options-info content-margin-bottom-3">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <th>사이트명</th>
-                                    <td>{props.campingSiteName[props.selectCampingSite]}</td>
-                                </tr>
-                                <tr>
-                                    <th>데크</th>
-                                    <td>카라반 앞 데크 및 파라솔 비치</td>
-                                </tr>
-                                <tr>
-                                    <th>비치 품목</th>
-                                    <td>
-                                        - 4인 식기 및 주방세트 1조
-                                        <br />
-                                        - 전자렌지, 냉장고, 에어컨
-                                        <br />
-                                        - 식탁, 소파
-                                        <br />
-                                        - 타올, 샴푸, 바디워셔
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>총 가격</th>
-                                    <td>
-                                        <span>200,000원</span>
-                                        <span>100원</span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <Col sm>
+                        <div className="select-options-info content-margin-bottom-3">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th>사이트명</th>
+                                        <td>{campingSiteName[selectCampingSite]}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>데크</th>
+                                        <td>카라반 앞 데크 및 파라솔 비치</td>
+                                    </tr>
+                                    <tr>
+                                        <th>비치 품목</th>
+                                        <td>
+                                            - 4인 식기 및 주방세트 1조
+                                            <br />
+                                            - 전자렌지, 냉장고, 에어컨
+                                            <br />
+                                            - 식탁, 소파
+                                            <br />
+                                            - 타올, 샴푸, 바디워셔
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>총 가격</th>
+                                        <td>
+                                            <span>200,000원</span>
+                                            <span>100원</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </Col>
                 </Row>
                 <Row>
-                    <div className="select-options-done-button content-margin-bottom-3">
-                        <button onClick={() => { props.handleShow() }}>예약</button>
-                    </div>
+                    <Col sm>
+                        <Accordion defaultActiveKey={['0']} alwaysOpen className="booker-info content-margin-bottom-3">
+                            <Form>
+                                <Accordion.Item eventKey="0">
+                                    <Accordion.Header>예약자 정보</Accordion.Header>
+                                    <Accordion.Body>
+                                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                                            <Form.Label>예약자 이름</Form.Label>
+                                            <Form.Control type="text" placeholder="예약자명" onChange={(e) => {
+                                                setUserName(e.target.value);
+                                            }} />
+                                            <Form.Text className="text-muted">
+                                                예약자분의 성함을 입력해주세요.
+                                            </Form.Text>
+                                        </Form.Group>
+                                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                                            <Form.Label>전화번호</Form.Label>
+                                            <Form.Control type="text" placeholder="예약자 전화번호" onChange={(e) => {
+                                                setUserPhone(e.target.value);
+                                            }} />
+                                            <Form.Text className="text-muted">
+                                                예약자분의 전화번호를 입력해주세요. 해당 번호로 예약확인 문자알림을 보내드립니다.
+                                            </Form.Text>
+                                        </Form.Group>
+                                    </Accordion.Body>
+                                </Accordion.Item>
+                            </Form>
+                        </Accordion>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col sm>
+                        <div className="select-options-done-button section-margin-bottom-5">
+                            <button onClick={() => {
+                                let validation = UserInfoValidation(userName, userPhone);
+
+                                if (validation) {
+                                    Payments(userName, userPhone);
+                                } else {
+                                    Swal.fire({
+                                        title: "예약실패",
+                                        html: `예약자 이름과 전화번호를<br/>정확하게 입력해주세요.`
+                                    })
+                                }
+                            }}>예약</button>
+                        </div>
+                    </Col>
                 </Row>
             </Container>
         </div>
     );
 }
 
-let InputUserData = (props) => {
-    let reservation_start_date =
-        `${props.startDate.getFullYear()}-
-        ${props.startDate.getMonth() + 1}-
-        ${props.startDate.getDate()}
-        `;
-
-    let reservation_end_date =
-        `${props.endDate.getFullYear()}-
-        ${props.endDate.getMonth() + 1}-
-        ${props.endDate.getDate()}
-        `;
-
-    return (
-        <Offcanvas show={props.show} onHide={props.handleClose} backdrop="static" style={{ width: '50%' }}>
-            <Offcanvas.Header closeButton>
-                <Offcanvas.Title>예약</Offcanvas.Title>
-            </Offcanvas.Header>
-            <Offcanvas.Body>
-                <div className="reservation-offcanvas-wrap">
-                    <div className="reservation-title section-margin-bottom-5">
-                        <h4>예약정보</h4>
-                    </div>
-                    <div className="reservation-body section-margin-bottom-5">
-                        <div className="reservation-info">
-                            <Accordion defaultActiveKey={['0']} alwaysOpen>
-                                <Accordion.Item eventKey="0">
-                                    <Accordion.Header></Accordion.Header>
-                                    <Accordion.Body>
-                                        <div className='reservation-info-item'>
-                                            <h5>캠핑사이트</h5>
-                                            <span>{props.campingSiteName[props.selectCampingSite]}</span>
-                                        </div>
-                                    </Accordion.Body>
-                                    <Accordion.Body>
-                                        <div className='reservation-info-item'>
-                                            <h5>예약기간</h5>
-                                            <span>{reservation_start_date} ~ {reservation_end_date}</span>
-                                        </div>
-                                    </Accordion.Body>
-                                    <Accordion.Body>
-                                        <div className='reservation-info-item'>
-                                            <h5>결제요금</h5>
-                                            <span>100원</span>
-                                        </div>
-                                    </Accordion.Body>
-                                    <Accordion.Body>
-                                        <div className='reservation-info-item'>
-                                            <h5>예약자 명</h5>
-                                            <Form.Control size="lg" type="text" placeholder="예약자 이름" onChange={(e) => { props.setUserName(e.target.value) }} />
-                                        </div>
-                                    </Accordion.Body>
-                                    <Accordion.Body>
-                                        <div className='reservation-info-item'>
-                                            <h5>전화번호 (문자알림서비스 제공용)</h5>
-                                            <Form.Control size="lg" type="text" placeholder="예약자 전화번호" onChange={(e) => { props.setUserPhone(e.target.value) }} />
-                                        </div>
-                                    </Accordion.Body>
-                                </Accordion.Item>
-                            </Accordion>
-                        </div>
-                    </div>
-                    <div className="reservation-button">
-                        <Button variant="primary" onClick={() => {
-                            if (props.userName != '' && props.userPhone != '') {
-                                Payments(props.userName, props.userPhone, props.handleClose);
-                            } else {
-                                Swal.fire({
-                                    title: "예약실패",
-                                    html: `예약자 이름과 전화번호를<br/>정확하게 입력해주세요.`
-                                })
-                            }
-                        }}>예약</Button>
-                    </div>
-                </div>
-            </Offcanvas.Body>
-        </Offcanvas>
-    );
+let UserInfoValidation = (userName, userPhone) => {
+    if (userName != '' && userPhone != '') {
+        return true;
+    } else {
+        return false;
+    }
 }
 
-let Payments = (userName, userPhone, handleClose) => {
+let Payments = (userName, userPhone) => {
     const callback = (response) => {
         const { success, error_msg } = response;
         if (success) {
@@ -264,11 +210,7 @@ let Payments = (userName, userPhone, handleClose) => {
                 title: "예약완료",
                 html: `입력하신 전화번호로<br/>확인 메시지를 보내드리겠습니다.`
             }).then(() => {
-                handleClose();
-                axios.post('/sendSMS', {
-                    phone: userPhone,
-                    content: `[가야랜드달빛야영장] ${userName}님의 예약이 완료되었습니다.`
-                })
+                SendSMS(userName, userPhone);
             })
         } else {
             alert(`결제 실패 : ${error_msg}`);
@@ -284,9 +226,16 @@ let Payments = (userName, userPhone, handleClose) => {
         custom_data: { name: '부가정보', desc: '세부 부가정보' },
         buyer_name: userName, // 구매자 이름
         buyer_tel: userPhone, // 구매자 전화번호 (필수항목)
-        buyer_email: 'ju741085@naver.com', // 구매자 이메일
+        buyer_email: 'ju741085@naver.com', // 구매자 이메일 (개발자 이메일 임시)
     };
     IMP.request_pay(data, callback);
+}
+
+let SendSMS = (userName, userPhone) => {
+    axios.post('/sendSMS', {
+        phone: userPhone,
+        content: `[가야랜드달빛야영장] ${userName}님의 예약이 완료되었습니다.`
+    })
 }
 
 export default Reservation;
